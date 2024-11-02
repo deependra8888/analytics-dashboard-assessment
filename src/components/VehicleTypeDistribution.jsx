@@ -4,28 +4,27 @@ import { useEffect, useState } from 'react';
 
 const PlotMaps = {};
 
-export default function VehicleModelDistribution({ data }) {
+export default function VehicleTypeDistribution({ data }) {
     const [config, setConfig] = useState();
 
     useEffect(() => {
         if (data) {
-            let makeCount = {};
+            let typeCount = {};
             for (let item of data) {
-                const make = item.Make;
-
-                if (makeCount[make]) {
-                    makeCount[make]++;
+                const type = item['Electric Vehicle Type'];
+                if (typeCount[type]) {
+                    typeCount[type]++;
                 } else {
-                    makeCount[make] = 1;
+                    typeCount[type] = 1;
                 }
             }
-            const result = Object.keys(makeCount).map((make, index) => ({
+            const result = Object.keys(typeCount).map((type, index) => ({
                 index,
-                type: make,
-                count: makeCount[make],
+                type: type,
+                count: typeCount[type],
             }));
 
-            console.log(result);
+            // console.log(result);
 
             setConfig({
                 data: result,
@@ -33,11 +32,7 @@ export default function VehicleModelDistribution({ data }) {
                 colorField: 'type',
                 label: {
                     text: (data) => {
-                        if (data.count > 1200) {
-                            return `${data.type}`;
-                        } else {
-                            return ' ';
-                        }
+                        return `${data.type}`;
                     },
                     // position: '',
                     style: {
