@@ -25,8 +25,6 @@ export default function VehicleModelDistribution({ data }) {
                 count: makeCount[make],
             }));
 
-            console.log(result);
-
             setConfig({
                 data: result,
                 angleField: 'count',
@@ -81,7 +79,6 @@ export default function VehicleModelDistribution({ data }) {
                         plot.chart.on('legend:filter', (e) => {
                             const { nativeEvent, data } = e;
                             if (!nativeEvent) return;
-                            // console.log(data);
                         });
                     }}
                 />

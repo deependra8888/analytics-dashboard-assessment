@@ -2,9 +2,11 @@ import React, { useEffect } from 'react';
 
 export default function StockPrices({ data }) {
     useEffect(() => {
-        fetchStockPrice({ name: 'Tesla', symbol: 'TSLA' });
+        // fetchStockPrice({ name: 'Tesla', symbol: 'TSLA' });
     }, []);
-    return <div>StockPrices</div>;
+    return (<div>
+        <div><p>BTC-USC</p></div>        
+    </div>)
 }
 
 // List of car manufacturers with their corresponding stock symbols
@@ -73,3 +75,5 @@ async function fetchStockPrice(company) {
         console.error(`Error fetching data for ${company.name} (${company.symbol}):`, error);
     }
 }
+
+
