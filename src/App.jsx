@@ -9,7 +9,7 @@ export default function App() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('/src/assets/data.csv');
+                const response = await fetch('../public/data.csv');
                 const csvText = await response.text();
                 const parsedData = parseCSV(csvText);
                 console.log(parsedData);
